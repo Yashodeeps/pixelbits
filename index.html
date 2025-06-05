@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MangaFy</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+      <header class="header">
+        <h1 class="logo">MangaFy</h1>
+        <p class="tagline">Transform your photos into stunning manga artwork</p>
+        <div class="viral-badge">🔥 TRENDING NOW</div>
+      </header>
+
+      <div class="main-content">
+        <div class="upload-section">
+          <div class="upload-zone" id="uploadZone">
+            <label for="upload" class="upload-label">
+              <div class="upload-icon">📸</div>
+              <div class="upload-text">
+                Drop your image here or click to browse
+              </div>
+              <div class="upload-subtext">
+                Supports JPG, PNG, WebP • Max 10MB
+              </div>
+            </label>
+            <input type="file" id="upload" accept="image/*" hidden />
+          </div>
+        </div>
+
+        <div class="preview-section">
+          <div class="image-container" id="imageContainer">
+            <div class="placeholder" id="placeholder">
+              Your manga masterpiece will appear here ✨
+            </div>
+            <canvas id="canvas"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button
+          onclick="processImage('mangafy')"
+          class="btn btn-primary"
+          id="mangafyBtn"
+          disabled
+        >
+          ⚡ MANGAFY NOW
+        </button>
+        <button
+          class="btn btn-secondary"
+          id="downloadBtn"
+          onclick="downloadImage()"
+          style="display: none"
+        >
+          💾 DOWNLOAD
+        </button>
+      </div>
+
+      <div class="social-share">
+        <div class="share-text">Share your manga transformation!</div>
+        <div class="share-buttons">
+          <button class="share-btn twitter" onclick="shareToTwitter()">
+            🐦
+          </button>
+          <button class="share-btn instagram" onclick="shareToInstagram()">
+            📱
+          </button>
+          <button class="share-btn tiktok" onclick="shareToTikTok()">🎵</button>
+          <button class="share-btn facebook" onclick="shareToFacebook()">
+            📘
+          </button>
+        </div>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-title">Lightning Fast</div>
+          <div class="feature-text">AI-powered conversion in seconds</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎨</div>
+          <div class="feature-title">Professional Quality</div>
+          <div class="feature-text">Studio-grade manga effects</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📱</div>
+          <div class="feature-title">Mobile Optimized</div>
+          <div class="feature-text">Perfect for social sharing</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="processing" id="processing">
+      <div class="processing-content">
+        <div class="spinner"></div>
+        <div>Creating your manga masterpiece...</div>
+      </div>
+    </div>
+
+    <script src="ui.js"></script>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
