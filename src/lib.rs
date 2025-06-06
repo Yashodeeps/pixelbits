@@ -3,6 +3,7 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 pub fn mangafy(width: usize, height: usize, pixels: &mut [u8]) {
+    println!("Mangafy called with width: {}, height: {}", width, height);
     // Step 1: Grayscale conversion
     let mut gray = vec![0u8; width * height];
     for y in 0..height {

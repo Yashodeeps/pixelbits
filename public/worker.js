@@ -1,11 +1,10 @@
-console.log("Worker script loaded");
-
 import init, { mangafy } from "./pkg/pixelbits.js";
 
 console.log("Worker initialized");
 
 init().then(() => {
-  console.log("WASM module initialized");s
+  console.log("WASM module initialized");
+
   self.onmessage = (e) => {
     const { imageData, type } = e.data;
 

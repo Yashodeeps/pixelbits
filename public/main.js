@@ -1,7 +1,8 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const upload = document.getElementById("upload");
-const worker = new Worker("/worker.js", {
+
+const worker = new Worker("./worker.js", {
   type: "module",
 });
 
