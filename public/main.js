@@ -31,5 +31,6 @@ worker.onmessage = (e) => {
 
 window.processImage = function (type) {
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  console.log("Processing image with type:", type);
   worker.postMessage({ imageData, type });
 };
