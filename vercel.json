@@ -1,8 +1,23 @@
 {
   "headers": [
     {
-      "source": "pkg/(.*)",
-      "headers": [{ "key": "Content-Type", "value": "application/wasm" }]
+      "source": "/pkg/(.*\\.wasm)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/wasm"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/worker.js",
+      "destination": "/worker.js"
+    },
+    {
+      "source": "/pkg/(.*)",
+      "destination": "/pkg/$1"
     }
   ]
 }
