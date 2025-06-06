@@ -2,9 +2,12 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const upload = document.getElementById("upload");
 
-const worker = new Worker("./worker.js", {
-  type: "module",
-});
+try {
+  const worker = new Worker("worker.js", { type: "module" });
+  console.log("Worker started ✅");
+} catch (err) {
+  console.error("Worker failed ❌", err);
+}
 
 upload.addEventListener("change", (e) => {
   console.log("File selected:", e.target.files[0]);
