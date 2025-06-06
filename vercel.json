@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/pkg/(.*)",
+      "source": "/public/pkg/(.*)",
       "headers": [{ "key": "Content-Type", "value": "application/wasm" }]
     }
   ]
