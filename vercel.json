@@ -1,0 +1,8 @@
+{
+  "headers": [
+    {
+      "source": "/pkg/(.*)",
+      "headers": [{ "key": "Content-Type", "value": "application/wasm" }]
+    }
+  ]
+}

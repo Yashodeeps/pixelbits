@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MangaFy</title>
     <link rel="stylesheet" href="styles.css" />
+    <script
+      defer
+      src="https://va.vercel-scripts.com/script.js"
+      data-token="VERCEL_ANALYTICS_TOKEN"
+    ></script>
   </head>
   <body>
     <div class="stars" id="stars"></div>
@@ -13,7 +18,9 @@
       <header class="header">
         <h1 class="logo">MangaFy</h1>
         <p class="tagline">Transform your photos into stunning manga artwork</p>
-        <div class="viral-badge">🔥 TRENDING NOW</div>
+        <a href="https://x.com/yashodeepnim">
+          <div class="viral-badge">Buily by Yashodeep → X</div></a
+        >
       </header>
 
       <div class="main-content">
@@ -55,51 +62,9 @@
           class="btn btn-secondary"
           id="downloadBtn"
           onclick="downloadImage()"
-          style="display: none"
         >
           💾 DOWNLOAD
         </button>
-      </div>
-
-      <div class="social-share">
-        <div class="share-text">Share your manga transformation!</div>
-        <div class="share-buttons">
-          <button class="share-btn twitter" onclick="shareToTwitter()">
-            🐦
-          </button>
-          <button class="share-btn instagram" onclick="shareToInstagram()">
-            📱
-          </button>
-          <button class="share-btn tiktok" onclick="shareToTikTok()">🎵</button>
-          <button class="share-btn facebook" onclick="shareToFacebook()">
-            📘
-          </button>
-        </div>
-      </div>
-
-      <div class="features">
-        <div class="feature">
-          <div class="feature-icon">⚡</div>
-          <div class="feature-title">Lightning Fast</div>
-          <div class="feature-text">AI-powered conversion in seconds</div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">🎨</div>
-          <div class="feature-title">Professional Quality</div>
-          <div class="feature-text">Studio-grade manga effects</div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">📱</div>
-          <div class="feature-title">Mobile Optimized</div>
-          <div class="feature-text">Perfect for social sharing</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="processing" id="processing">
-      <div class="processing-content">
-        <div class="spinner"></div>
-        <div>Creating your manga masterpiece...</div>
       </div>
     </div>
 

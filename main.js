@@ -1,10 +1,9 @@
-import init, { mangafy } from "./pkg/pixelbits.js";
-
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const upload = document.getElementById("upload");
-
-await init();
+const worker = new Worker("worker.js", {
+  type: "module",
+});
 
 upload.addEventListener("change", (e) => {
   console.log("File selected:", e.target.files[0]);
@@ -18,8 +17,6 @@ upload.addEventListener("change", (e) => {
     ctx.drawImage(img, 0, 0);
   };
 
-  console.log(img);
-
   img.onerror = (err) => {
     console.error("Error loading image:", err);
   };
@@ -27,17 +24,12 @@ upload.addEventListener("change", (e) => {
   img.src = URL.createObjectURL(file);
 });
 
-function processWithWASM(imageData, type) {
-  if (type === "mangafy") {
-    const pixels = new Uint8Array(imageData.data.buffer);
-    mangafy(imageData.width, imageData.height, pixels);
-    imageData.data.set(pixels);
-  }
-  return imageData;
-}
+worker.onmessage = (e) => {
+  const processedData = e.data;
+  ctx.putImageData(processedData, 0, 0);
+};
 
 window.processImage = function (type) {
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  const processedData = processWithWASM(imageData, type);
-  ctx.putImageData(processedData, 0, 0);
+  worker.postMessage({ imageData, type });
 };
