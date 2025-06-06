@@ -2,8 +2,9 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const upload = document.getElementById("upload");
 
+let worker;
 try {
-  const worker = new Worker("worker.js", { type: "module" });
+  worker = new Worker("worker.js", { type: "module" });
   console.log("Worker started ✅");
 } catch (err) {
   console.error("Worker failed ❌", err);
