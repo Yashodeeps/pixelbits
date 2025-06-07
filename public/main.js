@@ -11,12 +11,10 @@ try {
 }
 
 upload.addEventListener("change", (e) => {
-  console.log("File selected:", e.target.files[0]);
   const file = e.target.files[0];
   const img = new Image();
 
   img.onload = () => {
-    console.log("Image loaded, dimensions:", img.width, "x", img.height);
     canvas.width = img.width;
     canvas.height = img.height;
     ctx.drawImage(img, 0, 0);
@@ -37,6 +35,5 @@ worker.onmessage = (e) => {
 
 window.processImage = function (type) {
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  console.log("Processing image with type:", type);
   worker.postMessage({ imageData, type }, [imageData.data.buffer]);
 };
