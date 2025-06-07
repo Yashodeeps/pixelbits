@@ -1,12 +1,21 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "public"
+      }
+    }
+  ],
   "routes": [
     {
       "src": "/pkg/(.*)",
-      "headers": { "content-type": "application/wasm" },
+      "headers": {
+        "content-type": "application/wasm"
+      },
       "continue": true
     }
-  ],
-  "buildCommand": "wasm-pack build --target web && cp -r pkg public/",
-  "outputDirectory": "public"
+  ]
 }
