@@ -30,8 +30,9 @@ upload.addEventListener("change", (e) => {
 });
 
 worker.onmessage = (e) => {
-  const processedData = e.data;
-  ctx.putImageData(processedData, 0, 0);
+  console.log("Worker message received:", e.data);
+  // const processedData = e.data;
+  // ctx.putImageData(processedData, 0, 0);
 };
 
 window.processImage = function (type) {
