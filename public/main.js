@@ -1,3 +1,5 @@
+import init, { mangafy } from "./pkg/pixelbits.js";
+
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const upload = document.getElementById("upload");
@@ -31,12 +33,12 @@ upload.addEventListener("change", (e) => {
 
 worker.onmessage = (e) => {
   console.log("Worker message received:", e.data);
-  // const processedData = e.data;
-  // ctx.putImageData(processedData, 0, 0);
+  const processedData = e.data;
+  ctx.putImageData(processedData, 0, 0);
 };
 
 window.processImage = function (type) {
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   console.log("Processing image with type:", type);
-  worker.postMessage({ imageData, type });
+  worker.postMessage({ imageData, type }, [imageData.data.buffer]);
 };
