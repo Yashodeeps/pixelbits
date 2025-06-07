@@ -1,0 +1,15 @@
+{
+  "name": "pixelbits",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "pixelbits_bg.wasm",
+    "pixelbits.js",
+    "pixelbits.d.ts"
+  ],
+  "main": "pixelbits.js",
+  "types": "pixelbits.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

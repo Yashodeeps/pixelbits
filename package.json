@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "build": "curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh && wasm-pack build --target web && mkdir -p public/pkg && cp -r pkg/* public/pkg/"
+    "build": "echo 'Build complete'"
   },
   "repository": {
     "type": "git",
