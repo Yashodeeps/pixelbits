@@ -1,13 +1,12 @@
 {
-  "headers": [
+  "version": 2,
+  "routes": [
     {
-      "source": "/pkg/(.*)",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/wasm"
-        }
-      ]
+      "src": "/pkg/(.*)",
+      "headers": { "content-type": "application/wasm" },
+      "continue": true
     }
-  ]
+  ],
+  "buildCommand": "wasm-pack build --target web && cp -r pkg public/",
+  "outputDirectory": "public"
 }
