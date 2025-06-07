@@ -1,22 +1,14 @@
 {
-  "version": 2,
-  "buildCommand": "bash build.sh",
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "public"
-      }
+      "src": "public/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/pkg/(.*)",
-      "headers": {
-        "content-type": "application/wasm"
-      },
-      "continue": true
+      "src": "/(.*)",
+      "dest": "/public/$1"
     }
   ]
 }
