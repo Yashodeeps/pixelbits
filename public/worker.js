@@ -1,4 +1,4 @@
-import init, { mangafy } from "./pkg/pixelbits.js";
+import init, { mangafy } from "/pkg/pixelbits.js";
 
 console.log("Worker initialized");
 
